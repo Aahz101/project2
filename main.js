@@ -1,30 +1,25 @@
-document.getElementById("fetchRepos").addEventListener("click", () => {
+document.getElementById("fetchUser").addEventListener("click", () => {
     const username = document.getElementById("username").value;
-    const url = `https://api.github.com/users/${username}/repos`;
+    const url = `https://api.github.com/users/${username}`;
 
-    fetch(url, {
-        method: "GET",
-        headers: {
-            "Authorization": "Bearer YOUR_GITHUB_API_KEY",
-            "Accept": "application/vnd.github.v3+json"
-        }
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error("Failed to fetch repositories");
-        }
-        return response.json();
-    })
-    .then(data => {
-        const repoList = document.getElementById("repoList");
-        repoList.innerHTML = "";
-        data.forEach(repo => {
-            const li = document.createElement("li");
-            li.textContent = repo.name;
-            repoList.appendChild(li);
+    fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("User not found");
+            }
+            return response.json();
+        })
+        .then(data => {
+            // document.getElementById("output").innerHTML = `
+            //     <h2>${data.name}</h2>
+            //     <p><strong>Username:</strong> ${data.login}</p>
+            //     <p><strong>Public Repos:</strong> ${data.public_repos}</p>
+            //     <img src="${data.avatar_url}" width="100">
+            // `;
+            document.getElementById("output").innerHTML = 
+            '<img src="${data.avatar_url}" width="100"> ';
+        })
+        .catch(error => {
+            document.getElementById("output").textContent = error.message;
         });
-    })
-    .catch(error => {
-        document.getElementById("repoList").innerHTML = `<li>${error.message}</li>`;
-    });
 });
