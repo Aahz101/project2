@@ -1,25 +1,17 @@
+const searchContainer = document.getElementById(".js-search-container");
+const searchForm = document.getElementById("search-form");
+const resultsContainer = document.getElementById(".js-results-container");
+
+$.ajax({
+    url: "test.api.giphy.com/v1/gifs/search	",
+    context: document.body
+  }).done(function() {
+    $( this ).addClass( "done" );
+  });
+
 document.getElementById("Search").addEventListener("click", () => {
     const searchTerm = document.getElementById("search").value;
-    const url = `https://api.github.com/users/${username}`;
+    const url = `api.giphy.com/v1/gifs/search${searchTerm}`;
 
-    fetch(url)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("User not found");
-            }
-            return response.json();
-        })
-        .then(data => {
-            // document.getElementById("output").innerHTML = `
-            //     <h2>${data.name}</h2>
-            //     <p><strong>Username:</strong> ${data.login}</p>
-            //     <p><strong>Public Repos:</strong> ${data.public_repos}</p>
-            //     <img src="${data.avatar_url}" width="100">
-            // `;
-            document.getElementById("output").innerHTML = 
-            '<img src="${data.avatar_url}" width="100"> ';
-        })
-        .catch(error => {
-            document.getElementById("output").textContent = error.message;
-        });
+
 });
