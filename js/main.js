@@ -1,5 +1,5 @@
 document.getElementById("Search").addEventListener("click", () => {
-    const username = document.getElementById("username").value;
+    const searchTerm = document.getElementById("search").value;
     const url = `https://api.github.com/users/${username}`;
 
     fetch(url)
