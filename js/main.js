@@ -1,4 +1,4 @@
-document.getElementById("fetchUser").addEventListener("click", () => {
+document.getElementById("Search").addEventListener("click", () => {
     const username = document.getElementById("username").value;
     const url = `https://api.github.com/users/${username}`;
 
