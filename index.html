@@ -14,8 +14,13 @@
   <body>
     <section class="search-container js-search-container">
       <h1>GIPHY Search</h1>
-      <input type="text" id="search" placeholder="Enter search term" />
-      <button id="Search">Search</button>
+      <form id="search-form" class="form-inline">
+        <label for="search">Search GIPHY:</label>
+        <input type="text" id="search" placeholder="Enter search term" />
+        <input type="number" id="img-count-id" name="img-count" min="1" max="21" value="1">
+        <button id="Search">Search</button>
+      </form>
+
     </section>
     <section class="results-container js-results-container">
       <div id="output"></div>
