@@ -10,7 +10,6 @@ const apiKey = "rJs1dhQNXII3vND3b8amLn6LwHSb35IW";
 
 function setValues()
 {
-searchBox.textContent
   searchTerm = document.getElementById("search-box").value;
   limit = document.getElementById("img-count-id").value;
 }
