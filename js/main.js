@@ -32,7 +32,7 @@ function renderImages(data) {
   resultsContainer.innerHTML = ""; // Clear previous results
   const gifs = data.data;
 
-  gifs.forEach((gif) => {
+  gifs.map((gif) => {
     const img = document.createElement("img");
     img.src = gif.images.original.url;
     img.alt = gif.title;
